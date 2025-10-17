@@ -1,0 +1,74 @@
+*{
+    /* Quitamos margenes y padding por defecto y los dejamos a 0*/
+    margin: 0;
+    padding: 0;
+    /* Hacemos que la caja de cada elemento incluya en el width que le pongamos el borde y el padding (el margin no) */
+    box-sizing: border-box;
+}
+/*BODY*/
+body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    grid-template-rows: 75vh 25vh;
+    grid-template-areas: 
+        "fondo imagenes"
+        "fondo menu";
+}
+
+
+.fondoWeb {
+    grid-area: fondo;
+    /*position relative para que las imagenes que se clonan aqui puedan tener position absolute*/
+    position: relative;
+    background-image: url("./../imagenes/fondo.png");
+    background-size: cover;
+    border: 3px solid #000000;
+}
+
+.imagenes {
+    width: 100%;
+    background-color: darkgrey;
+    grid-area: imagenes;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    border: 3px solid #000000;
+}
+
+.imagen {
+    width: 70%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.menuAcciones {
+    grid-area: menu;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border: 3px solid #000000;
+    background-color:dodgerblue;
+}
+
+label {
+    margin-bottom: 1em;
+}
+
+#guardar {
+    padding: 0.5em;
+    background-color: chocolate;
+    border-radius: 10px;
+}
+
+/*estilo para las imagenes clonadas*/
+.clones {
+    /*position absolute para que aparezcan situadas en la esquina derecha superior*/
+    position: absolute;
+    /*el width lo establecemos inline con javascript para despues poder aumentar o reducir*/
+    height: auto;
+    margin: 0.2em;
+    /*también se establece inline con javascript el z-index*/
+}
